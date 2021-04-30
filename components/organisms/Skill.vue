@@ -5,7 +5,7 @@
       <v-card>
         <v-row>
           <v-col cols="12">
-            <v-simple-table>
+            <v-simple-table dense>
               <thead>
                 <tr>
                   <th width="5%">習熟</th>

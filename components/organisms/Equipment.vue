@@ -80,31 +80,42 @@
             </v-data-iterator>
 
             <!-- スマホ以外 -->
-            <v-simple-table v-if="!isXs">
+            <v-simple-table v-if="!isXs" dense>
               <thead>
                 <tr>
-                  <th width="25%">装備名</th>
-                  <th width="10%">数量</th>
-                  <th width="10%">重量</th>
-                  <th width="45%">メモ</th>
-                  <th width="5%">
+                  <th class="caption" width="35%">装備名</th>
+                  <th class="caption" width="5%">数量</th>
+                  <th class="caption" width="10%">重量</th>
+                  <th class="caption" width="40%">メモ</th>
+                  <th class="caption" width="5%">
                     <v-icon small @click="addItem()"> mdi-file-plus </v-icon>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in equipments" :key="item.name">
+                <tr v-for="(item, index) in equipments" :key="index">
                   <td>
-                    <v-text-field v-model="item.name" dense />
+                    <v-text-field class="caption" v-model="item.name" dense />
                   </td>
                   <td>
-                    <v-text-field v-model="item.quantity" dense />
+                    <v-text-field
+                      class="caption"
+                      v-model="item.quantity"
+                      dense
+                    />
                   </td>
                   <td>
-                    <v-text-field v-model="item.weight" dense />
+                    <v-text-field class="caption" v-model="item.weight" dense />
                   </td>
                   <td>
-                    <v-text-field v-model="item.memo" dense />
+                    <!-- <v-text-field class="caption" v-model="item.memo" dense /> -->
+                    <v-textarea
+                      class="caption"
+                      v-model="item.memo"
+                      dense
+                      row-height="1"
+                      auto-grow
+                    />
                   </td>
                   <td>
                     <v-icon small @click="deleteItem(item)">
@@ -178,37 +189,37 @@ export default {
           name: 'ショートソード ',
           quantity: 1,
           weight: 1,
-          memo: '（ファミリア：10gp　アウル（ナイトウィンド）召喚済)',
+          memo: 'ファミリア：10gp',
         },
         {
           name: 'ショートソード ',
           quantity: 1,
           weight: 1,
-          memo: '（ファミリア：10gp　アウル（ナイトウィンド）召喚済)',
+          memo: 'ファミリア：10gp',
         },
         {
           name: 'ショートソード ',
           quantity: 1,
           weight: 1,
-          memo: '（ファミリア：10gp　アウル（ナイトウィンド）召喚済)',
+          memo: 'ファミリア：10gp',
         },
         {
           name: 'ショートソード ',
           quantity: 1,
           weight: 1,
-          memo: '（ファミリア：10gp　アウル（ナイトウィンド）召喚済)',
+          memo: 'ファミリア：10gp',
         },
         {
           name: 'ショートソード ',
           quantity: 1,
           weight: 1,
-          memo: '（ファミリア：10gp　アウル（ナイトウィンド）召喚済)',
+          memo: 'ファミリア：10gp',
         },
         {
           name: 'ショートソード ',
           quantity: 1,
           weight: 1,
-          memo: '（ファミリア：10gp　アウル（ナイトウィンド）召喚済)',
+          memo: 'ファミリア：10gp',
         },
       ],
     }

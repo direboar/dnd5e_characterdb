@@ -76,35 +76,35 @@
       </v-data-iterator>
 
       <!-- スマホ以外 -->
-      <v-simple-table v-if="!isXs">
+      <v-simple-table v-if="!isXs" dense>
         <thead>
           <tr>
-            <th width="25%">攻撃</th>
-            <th width="15%">ボーナス</th>
-            <th width="15%">ダメージ</th>
-            <th width="15%">タイプ</th>
-            <th width="25%">補足</th>
-            <th width="5%">
+            <th class="caption" width="25%">攻撃</th>
+            <th class="caption" width="15%">ボーナス</th>
+            <th class="caption" width="15%">ダメージ</th>
+            <th class="caption" width="15%">タイプ</th>
+            <th class="caption" width="25%">補足</th>
+            <th class="caption" width="5%">
               <v-icon small @click="addItem()"> mdi-file-plus </v-icon>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in attacks" :key="item.name">
+          <tr v-for="(item, index) in attacks" :key="index">
             <td>
-              <v-text-field v-model="item.name" dense />
+              <v-text-field class="caption" v-model="item.name" dense />
             </td>
             <td>
-              <v-text-field v-model="item.bonus" dense />
+              <v-text-field class="caption" v-model="item.bonus" dense />
             </td>
             <td>
-              <v-text-field v-model="item.damage" dense />
+              <v-text-field class="caption" v-model="item.damage" dense />
             </td>
             <td>
-              <v-text-field v-model="item.type" dense />
+              <v-text-field class="caption" v-model="item.type" dense />
             </td>
             <td>
-              <v-text-field v-model="item.memo" dense />
+              <v-text-field class="caption" v-model="item.memo" dense />
             </td>
             <td>
               <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>

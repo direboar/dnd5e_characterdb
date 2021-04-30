@@ -6,31 +6,33 @@
           <v-col cols="12">
             <basic-information :url="url" />
           </v-col>
-          <v-col lg="6" cols="12">
+          <v-col cols="12">
             <ability />
           </v-col>
-          <v-col lg="6" cols="12">
-            <saving-throw />
-          </v-col>
-          <v-col lg="6" cols="12">
-            <skill />
-          </v-col>
-          <v-col lg="6" cols="12">
+          <v-col md="6" cols="12">
             <attack />
-          </v-col>
-          <v-col lg="6" cols="12">
             <equipment />
           </v-col>
-          <v-col lg="6" cols="12">
+          <v-col md="6" cols="12">
+            <saving-throw />
+            <skill />
+          </v-col>
+          <!-- <v-col lg="6" cols="12">
+            <attack />
+          </v-col> -->
+          <!-- <v-col lg="6" cols="12">
+            <equipment />
+          </v-col> -->
+          <v-col md="6" cols="12">
             <other-attributes />
-          </v-col>
-          <v-col lg="6" cols="12">
-            <background />
-          </v-col>
-          <v-col lg="6" cols="12">
             <feature />
           </v-col>
-          <v-col lg="6" cols="12" />
+          <v-col md="6" cols="12">
+            <background />
+          </v-col>
+          <!-- <v-col lg="6" cols="12">
+          </v-col> -->
+          <!-- <v-col lg="6" cols="12" /> -->
           <v-col cols="12">
             <spells />
           </v-col>
