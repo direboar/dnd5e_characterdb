@@ -3,14 +3,14 @@
     <!-- <v-row>
       <v-col cols="12"> -->
     <v-data-table :headers="headers" :items="spells" hide-default-footer dense>
-      <template v-slot:[`header.action`]>
+      <template #[`header.action`]>
         <v-icon small @click="addSpell()"> mdi-file-plus </v-icon>
       </template>
-      <template v-slot:[`item.name`]="props">
-        <v-text-field class="caption" v-model="props.item.name" dense />
+      <template #[`item.name`]="props">
+        <v-text-field v-model="props.item.name" class="caption" dense />
       </template>
-      <template v-slot:[`item.type`]="props">
-        <v-text-field class="caption" v-model="props.item.type" dense />
+      <template #[`item.type`]="props">
+        <v-text-field v-model="props.item.type" class="caption" dense />
       </template>
       <!-- <template v-slot:[`item.memo`]="props">
             <v-textarea
@@ -20,7 +20,7 @@
               dense
             />
           </template> -->
-      <template v-slot:[`item.action`]="{ item }">
+      <template #[`item.action`]="{ item }">
         <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
     </v-data-table>

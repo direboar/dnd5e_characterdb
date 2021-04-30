@@ -13,7 +13,7 @@
         :items-per-page="4"
         hide-default-footer
       >
-        <template v-slot:default="{ items }">
+        <template #default="{ items }">
           <v-row>
             <v-col v-for="(item, index) in items" :key="index" cols="12">
               <v-simple-table dense>
@@ -92,19 +92,19 @@
         <tbody>
           <tr v-for="(item, index) in attacks" :key="index">
             <td>
-              <v-text-field class="caption" v-model="item.name" dense />
+              <v-text-field v-model="item.name" class="caption" dense />
             </td>
             <td>
-              <v-text-field class="caption" v-model="item.bonus" dense />
+              <v-text-field v-model="item.bonus" class="caption" dense />
             </td>
             <td>
-              <v-text-field class="caption" v-model="item.damage" dense />
+              <v-text-field v-model="item.damage" class="caption" dense />
             </td>
             <td>
-              <v-text-field class="caption" v-model="item.type" dense />
+              <v-text-field v-model="item.type" class="caption" dense />
             </td>
             <td>
-              <v-text-field class="caption" v-model="item.memo" dense />
+              <v-text-field v-model="item.memo" class="caption" dense />
             </td>
             <td>
               <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>

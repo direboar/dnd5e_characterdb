@@ -13,7 +13,7 @@
               :items-per-page="4"
               hide-default-footer
             >
-              <template v-slot:default="{ items }">
+              <template #default="{ items }">
                 <v-row>
                   <v-col v-for="(item, index) in items" :key="index" cols="12">
                     <v-simple-table dense>
@@ -28,22 +28,22 @@
                         <tr>
                           <td>
                             <v-text-field
-                              class="caption"
                               v-model="item.name"
+                              class="caption"
                               dense
                             />
                           </td>
                           <td>
                             <v-text-field
-                              class="caption"
                               v-model="item.quantity"
+                              class="caption"
                               dense
                             />
                           </td>
                           <td>
                             <v-text-field
-                              class="caption"
                               v-model="item.weight"
+                              class="caption"
                               dense
                             />
                           </td>
@@ -61,8 +61,8 @@
                         <tr>
                           <td>
                             <v-text-field
-                              class="caption"
                               v-model="item.memo"
+                              class="caption"
                               dense
                             />
                           </td>
@@ -95,23 +95,23 @@
               <tbody>
                 <tr v-for="(item, index) in equipments" :key="index">
                   <td>
-                    <v-text-field class="caption" v-model="item.name" dense />
+                    <v-text-field v-model="item.name" class="caption" dense />
                   </td>
                   <td>
                     <v-text-field
-                      class="caption"
                       v-model="item.quantity"
+                      class="caption"
                       dense
                     />
                   </td>
                   <td>
-                    <v-text-field class="caption" v-model="item.weight" dense />
+                    <v-text-field v-model="item.weight" class="caption" dense />
                   </td>
                   <td>
                     <!-- <v-text-field class="caption" v-model="item.memo" dense /> -->
                     <v-textarea
-                      class="caption"
                       v-model="item.memo"
+                      class="caption"
                       dense
                       row-height="1"
                       auto-grow

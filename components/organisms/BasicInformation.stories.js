@@ -9,10 +9,11 @@ export const NuxtWebsite = () => ({
   components: {
     BasicInformation,
   },
-  template: '<v-app><v-expansion-panels multiple v-model="panels"><BasicInformation :url="url"/></v-expansion-panels></v-app>',
+  template:
+    '<v-app><v-expansion-panels multiple v-model="panels"><BasicInformation :url="url"/></v-expansion-panels></v-app>',
   data() {
     return {
-      panels : [0],
+      panels: [0],
       url:
         'http://wizardofthetavern.com/wp-content/uploads/2019/10/kensei-monk.jpg',
     }

@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+// import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -8,7 +8,7 @@ export default {
   target: 'static',
 
   router: {
-    base: '/dnd5e_characterdb/'
+    base: '/dnd5e_characterdb/',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -56,18 +56,18 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    treeShake : true,
+    treeShake: true,
     theme: {
       dark: true,
       themes: {
         dark: {
-          primary: "#4caf50",
-          secondary: "#8bc34a",
-          accent: "#cddc39",
-          error: "#ffeb3b",
-          warning: "#ffc107",
-          info: "#ff5722",
-          success: "#795548",
+          primary: '#4caf50',
+          secondary: '#8bc34a',
+          accent: '#cddc39',
+          error: '#ffeb3b',
+          warning: '#ffc107',
+          info: '#ff5722',
+          success: '#795548',
         },
       },
     },

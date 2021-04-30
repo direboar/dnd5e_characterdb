@@ -11,7 +11,7 @@
               hide-default-footer
               dense
             >
-              <template v-slot:[`item.other`]="props">
+              <template #[`item.other`]="props">
                 <v-text-field v-model="props.item.other" dense />
               </template>
             </v-data-table>

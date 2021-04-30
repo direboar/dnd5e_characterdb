@@ -1,7 +1,7 @@
 <template>
   <v-card :color="color" hover rounded>
     <v-container class="pa-0" fluid fill-height>
-      <v-expansion-panels multiple v-model="panels">
+      <v-expansion-panels v-model="panels" multiple>
         <v-row no-gutters>
           <v-col cols="12">
             <basic-information :url="url" />

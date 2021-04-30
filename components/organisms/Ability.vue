@@ -12,17 +12,17 @@
               class="table"
               dense
             >
-              <template v-slot:[`item.start`]="props">
+              <template #[`item.start`]="props">
                 <v-select
-                  :items="startAbilities"
                   v-model="props.item.start"
+                  :items="startAbilities"
                   dense
                 ></v-select>
               </template>
-              <template v-slot:[`item.race`]="props">
+              <template #[`item.race`]="props">
                 <v-text-field v-model="props.item.race" dense />
               </template>
-              <template v-slot:[`item.other`]="props">
+              <template #[`item.other`]="props">
                 <v-text-field v-model="props.item.other" dense />
               </template>
             </v-data-table>

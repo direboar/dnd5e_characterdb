@@ -9,10 +9,11 @@ export const NuxtWebsite = () => ({
   components: {
     Ability,
   },
-  template: '<v-app><v-expansion-panels multiple v-model="panels"><Ability :url="url"/></v-expansion-panels></v-app>',
+  template:
+    '<v-app><v-expansion-panels multiple v-model="panels"><Ability :url="url"/></v-expansion-panels></v-app>',
   data() {
     return {
-      panels : [0]
+      panels: [0],
     }
   },
   // methods: {
