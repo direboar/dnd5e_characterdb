@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - deploy-github-page
   pull_request:
     branches:
       - main
@@ -27,7 +28,6 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ matrix.node }}
-          check-latest: true
 
       - name: Cache node_modules 📦
         uses: actions/cache@v2
@@ -36,12 +36,20 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - name: Install dependencies 👨🏻‍💻
         run: npm ci
 
       - name: Run linter 👀
         run: npm run lint
 
-      - name: Run tests 🧪
-        run: npm run test
+      # - name: Run tests 🧪
+      #   run: npm run test
+
+      - name: generate
+        run: npm run generate
+
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUBTOKEN }}
+          publish_dir: ./dist 
