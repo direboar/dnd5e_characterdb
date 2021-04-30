@@ -2,3 +2,16 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+// $body-font-family: "Open Sans";
+tbody tr:nth-of-type(odd) {
+  background-color: rgb(58, 53, 57);
+}
+$expansion-panel-content-padding : 5px;
+$expansion-panel-header-padding : 5px;
+// .v-data-table tr th {
+//   font-size: 15px !important;
+// }
+
+// .v-data-table tr td {
+//   font-size: 15px !important;
+// }
