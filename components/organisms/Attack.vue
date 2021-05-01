@@ -2,15 +2,12 @@
   <v-expansion-panel expand pa-0>
     <v-expansion-panel-header>攻撃</v-expansion-panel-header>
     <v-expansion-panel-content>
-      <!-- <v-card>
-        <v-row>
-          <v-col cols="12"> -->
       <!--スマホ表示-->
       <v-data-iterator
         v-if="isXs"
         :items="attacks"
         item-key="name"
-        :items-per-page="4"
+        :items-per-page="99"
         hide-default-footer
       >
         <template #default="{ items }">
@@ -71,6 +68,9 @@
                 </tbody>
               </v-simple-table>
             </v-col>
+            <v-col cols="6" offset="4">
+              <v-btn small color="#455A64" @click="addItem()">攻撃を追加</v-btn>
+            </v-col>
           </v-row>
         </template>
       </v-data-iterator>
@@ -79,13 +79,13 @@
       <v-simple-table v-if="!isXs" dense>
         <thead>
           <tr>
-            <th class="caption" width="25%">攻撃</th>
-            <th class="caption" width="15%">ボーナス</th>
+            <th class="caption" width="35%">攻撃</th>
+            <th class="caption" width="10%">ボーナス</th>
             <th class="caption" width="15%">ダメージ</th>
-            <th class="caption" width="15%">タイプ</th>
+            <th class="caption" width="10%">タイプ</th>
             <th class="caption" width="25%">補足</th>
             <th class="caption" width="5%">
-              <v-icon small @click="addItem()"> mdi-file-plus </v-icon>
+              <v-icon dense @click="addItem()"> mdi-file-plus </v-icon>
             </th>
           </tr>
         </thead>
@@ -104,17 +104,20 @@
               <v-text-field v-model="item.type" class="caption" dense />
             </td>
             <td>
-              <v-text-field v-model="item.memo" class="caption" dense />
+              <v-textarea
+                v-model="item.memo"
+                class="caption ma-n2"
+                dense
+                row-height="1"
+                auto-grow
+              />
             </td>
             <td>
-              <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+              <v-icon dense @click="deleteItem(item)"> mdi-delete </v-icon>
             </td>
           </tr>
         </tbody>
       </v-simple-table>
-      <!-- </v-col>
-        </v-row>
-      </v-card> -->
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>

@@ -3,7 +3,7 @@
     <v-expansion-panel-header>呪文</v-expansion-panel-header>
     <v-expansion-panel-content>
       <v-row>
-        <v-col md="4" ms="6" cols="12">
+        <v-col lg="4" ms="6" cols="12">
           <spell level="CANTRIP" />
         </v-col>
         <v-col md="4" ms="6" cols="12">

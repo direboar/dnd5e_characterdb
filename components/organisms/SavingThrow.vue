@@ -2,22 +2,42 @@
   <v-expansion-panel>
     <v-expansion-panel-header>セーヴィングスロー</v-expansion-panel-header>
     <v-expansion-panel-content>
-      <v-card>
-        <v-row>
-          <v-col cols="12">
-            <v-data-table
-              :headers="headers"
-              :items="saves"
-              hide-default-footer
-              dense
-            >
-              <template #[`item.other`]="props">
-                <v-text-field v-model="props.item.other" dense />
-              </template>
-            </v-data-table>
-          </v-col>
-        </v-row>
-      </v-card>
+      <!-- スマホ,PCで同じレイアウト -->
+      <v-simple-table dense>
+        <thead>
+          <tr>
+            <th width="20%">種類</th>
+            <th width="20%">セーヴ</th>
+            <th width="20%">能力修正</th>
+            <th width="20%">その他</th>
+            <th width="20%">習熟ボーナス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in saves" :key="index">
+            <td>
+              {{ item.name }}
+            </td>
+            <td>
+              {{ item.value }}
+            </td>
+            <td>
+              {{ item.modifier }}
+            </td>
+            <td>
+              <v-text-field v-model="item.other" dense />
+            </td>
+            <td>
+              {{ item.profecies }}
+            </td>
+          </tr>
+        </tbody>
+      </v-simple-table>
+      <!-- <v-data-table :headers="headers" :items="saves" hide-default-footer dense>
+        <template #[`item.other`]="props">
+          <v-text-field v-model="props.item.other" dense />
+        </template>
+      </v-data-table> -->
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>

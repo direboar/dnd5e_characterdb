@@ -2,161 +2,114 @@
   <v-expansion-panel>
     <v-expansion-panel-header>装備</v-expansion-panel-header>
     <v-expansion-panel-content>
-      <v-card>
-        <v-row>
-          <v-col cols="12">
-            <!--スマホ表示-->
-            <v-data-iterator
-              v-if="isXs"
-              :items="equipments"
-              item-key="name"
-              :items-per-page="4"
-              hide-default-footer
-            >
-              <template #default="{ items }">
-                <v-row>
-                  <v-col v-for="(item, index) in items" :key="index" cols="12">
-                    <v-simple-table dense>
-                      <thead>
-                        <tr>
-                          <th class="caption" width="50%">名前</th>
-                          <th class="caption" width="25%">数量</th>
-                          <th class="caption" width="25%">重量</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <v-text-field
-                              v-model="item.name"
-                              class="caption"
-                              dense
-                            />
-                          </td>
-                          <td>
-                            <v-text-field
-                              v-model="item.quantity"
-                              class="caption"
-                              dense
-                            />
-                          </td>
-                          <td>
-                            <v-text-field
-                              v-model="item.weight"
-                              class="caption"
-                              dense
-                            />
-                          </td>
-                        </tr>
-                      </tbody>
-                    </v-simple-table>
-                    <v-simple-table dense>
-                      <thead>
-                        <tr>
-                          <th class="caption" width="900%">メモ</th>
-                          <th class="caption" width="10%"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <v-text-field
-                              v-model="item.memo"
-                              class="caption"
-                              dense
-                            />
-                          </td>
-                          <td>
-                            <v-icon small @click="deleteItem(item)">
-                              mdi-delete
-                            </v-icon>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </v-simple-table>
-                  </v-col>
-                </v-row>
-              </template>
-            </v-data-iterator>
+      <!--スマホ表示-->
+      <v-data-iterator
+        v-if="isXs"
+        :items="equipments"
+        item-key="name"
+        :items-per-page="99"
+        hide-default-footer
+      >
+        <template #default="{ items }">
+          <v-row>
+            <v-col v-for="(item, index) in items" :key="index" cols="12">
+              <v-simple-table dense>
+                <thead>
+                  <tr>
+                    <th class="caption" width="50%">名前</th>
+                    <th class="caption" width="25%">数量</th>
+                    <th class="caption" width="25%">重量</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <v-text-field v-model="item.name" class="caption" dense />
+                    </td>
+                    <td>
+                      <v-text-field
+                        v-model="item.quantity"
+                        class="caption"
+                        dense
+                      />
+                    </td>
+                    <td>
+                      <v-text-field
+                        v-model="item.weight"
+                        class="caption"
+                        dense
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </v-simple-table>
+              <v-simple-table dense>
+                <thead>
+                  <tr>
+                    <th class="caption" width="900%">メモ</th>
+                    <th class="caption" width="10%"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <v-text-field v-model="item.memo" class="caption" dense />
+                    </td>
+                    <td>
+                      <v-icon small @click="deleteItem(item)">
+                        mdi-delete
+                      </v-icon>
+                    </td>
+                  </tr>
+                </tbody>
+              </v-simple-table>
+            </v-col>
+            <v-col cols="6" offset="4">
+              <v-btn small color="#455A64" @click="addItem()">装備を追加</v-btn>
+            </v-col>
+          </v-row>
+        </template>
+      </v-data-iterator>
 
-            <!-- スマホ以外 -->
-            <v-simple-table v-if="!isXs" dense>
-              <thead>
-                <tr>
-                  <th class="caption" width="35%">装備名</th>
-                  <th class="caption" width="5%">数量</th>
-                  <th class="caption" width="10%">重量</th>
-                  <th class="caption" width="40%">メモ</th>
-                  <th class="caption" width="5%">
-                    <v-icon small @click="addItem()"> mdi-file-plus </v-icon>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, index) in equipments" :key="index">
-                  <td>
-                    <v-text-field v-model="item.name" class="caption" dense />
-                  </td>
-                  <td>
-                    <v-text-field
-                      v-model="item.quantity"
-                      class="caption"
-                      dense
-                    />
-                  </td>
-                  <td>
-                    <v-text-field v-model="item.weight" class="caption" dense />
-                  </td>
-                  <td>
-                    <!-- <v-text-field class="caption" v-model="item.memo" dense /> -->
-                    <v-textarea
-                      v-model="item.memo"
-                      class="caption"
-                      dense
-                      row-height="1"
-                      auto-grow
-                    />
-                  </td>
-                  <td>
-                    <v-icon small @click="deleteItem(item)">
-                      mdi-delete
-                    </v-icon>
-                  </td>
-                </tr>
-              </tbody>
-            </v-simple-table>
-            <!-- <v-data-table
-              :headers="headers"
-              :items="equipments"
-              hide-default-footer
-              items-per-page="99"
-            >
-              <template v-slot:[`header.action`]>
-                <v-icon small @click="addItem()"> mdi-file-plus </v-icon>
-              </template>
-              <template v-slot:[`item.name`]="props">
-                <v-text-field v-model="props.item.name" dense />
-              </template>
-              <template v-slot:[`item.quantity`]="props">
-                <v-text-field v-model="props.item.quantity" dense />
-              </template>
-              <template v-slot:[`item.weight`]="props">
-                <v-text-field
-                  v-model="props.item.weight"
-                  messages="ポンド"
-                  dense
-                />
-              </template>
-              <template v-slot:[`item.memo`]="props">
-                <v-text-field v-model="props.item.memo" dense />
-              </template>
-              <template v-slot:[`item.action`]="{ item }">
-                <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-              </template>
-            </v-data-table> -->
-          </v-col>
-        </v-row>
-      </v-card>
+      <!-- スマホ以外 -->
+      <v-simple-table v-if="!isXs" dense>
+        <thead>
+          <tr>
+            <th class="caption" width="40%">装備名</th>
+            <th class="caption" width="10%">数量</th>
+            <th class="caption" width="10%">重量</th>
+            <th class="caption" width="30%">メモ</th>
+            <th class="caption" width="5%">
+              <v-icon dense @click="addItem()"> mdi-file-plus </v-icon>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in equipments" :key="index">
+            <td>
+              <v-text-field v-model="item.name" class="caption" dense />
+            </td>
+            <td>
+              <v-text-field v-model="item.quantity" class="caption" dense />
+            </td>
+            <td>
+              <v-text-field v-model="item.weight" class="caption" dense />
+            </td>
+            <td>
+              <v-textarea
+                v-model="item.memo"
+                class="caption ma-n2"
+                dense
+                row-height="1"
+                auto-grow
+              />
+            </td>
+            <td>
+              <v-icon dense @click="deleteItem(item)"> mdi-delete </v-icon>
+            </td>
+          </tr>
+        </tbody>
+      </v-simple-table>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>

@@ -11,37 +11,37 @@
           <v-col cols="10">
             <v-row>
               <v-col cols="6">
-                <v-text-field v-model="messages" messages="キャラクター名" />
+                <v-text-field messages="キャラクター名" />
               </v-col>
               <v-col cols="2">
-                <v-text-field v-model="messages" messages="XP" />
+                <v-text-field messages="XP" />
               </v-col>
               <v-col cols="2">
-                <v-text-field v-model="messages" messages="LV" />
+                <v-text-field messages="LV" />
               </v-col>
               <v-col cols="2">
-                <v-text-field v-model="messages" messages="習熟ボーナス" />
+                <v-text-field messages="習熟ボーナス" />
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="2">
-                <v-text-field v-model="messages" messages="AC" />
+                <v-text-field messages="AC" />
               </v-col>
               <v-col cols="2">
-                <v-text-field v-model="messages" messages="サイズ" />
+                <v-text-field messages="サイズ" />
               </v-col>
               <v-col cols="2">
-                <v-text-field v-model="messages" messages="種族" />
+                <v-text-field messages="種族" />
               </v-col>
               <v-col cols="2">
-                <v-text-field v-model="messages" messages="背景" />
+                <v-text-field messages="背景" />
               </v-col>
               <v-col cols="2">
-                <v-text-field v-model="messages" messages="属性" />
+                <v-text-field messages="属性" />
               </v-col>
               <v-col cols="2">
                 <!--TODO 計算用の明細を入力可能にする-->
-                <v-text-field v-model="messages" messages="移動速度（基本）" />
+                <v-text-field messages="移動速度（基本）" />
               </v-col>
             </v-row>
           </v-col>

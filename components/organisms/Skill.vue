@@ -2,52 +2,29 @@
   <v-expansion-panel>
     <v-expansion-panel-header>技能</v-expansion-panel-header>
     <v-expansion-panel-content>
-      <v-card>
-        <v-row>
-          <v-col cols="12">
-            <v-simple-table dense>
-              <thead>
-                <tr>
-                  <th width="5%">習熟</th>
-                  <th width="32%">名前（能力値）</th>
-                  <th width="32%">他修正</th>
-                  <th width="32%">技能値（受動）</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in avility" :key="item.name">
-                  <td>
-                    <v-simple-checkbox
-                      v-model="item.profecy"
-                    ></v-simple-checkbox>
-                  </td>
-                  <td>{{ item.name }}</td>
-                  <td>
-                    <v-text-field v-model="item.other" dense />
-                  </td>
-                  <td>{{ item.value }}</td>
-                </tr>
-              </tbody>
-            </v-simple-table>
-            <!-- <v-data-table
-              :headers="headers"
-              :items="avility"
-              hide-default-footer
-              class="table"
-              dense
-            >
-              <template v-slot:[`item.profecy`]="props">
-                <v-simple-checkbox
-                  v-model="props.item.profecy"
-                ></v-simple-checkbox>
-              </template>
-              <template v-slot:[`item.other`]="props">
-                <v-text-field v-model="props.item.other" dense />
-              </template>
-            </v-data-table> -->
-          </v-col>
-        </v-row>
-      </v-card>
+      <!-- スマホ・PCで共通 -->
+      <v-simple-table dense>
+        <thead>
+          <tr>
+            <th class="caption" width="5%">習熟</th>
+            <th class="caption" width="50%">名前（能力値）</th>
+            <th class="caption" width="15%">他修正</th>
+            <th class="caption" width="30%">技能値（受動）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in skills" :key="item.name">
+            <td>
+              <v-simple-checkbox v-model="item.profecy"></v-simple-checkbox>
+            </td>
+            <td class="caption">{{ item.name }}</td>
+            <td>
+              <v-text-field class="caption" v-model="item.other" dense />
+            </td>
+            <td class="caption">{{ item.value }}</td>
+          </tr>
+        </tbody>
+      </v-simple-table>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
@@ -85,7 +62,7 @@ export default {
           width: '32%',
         },
       ],
-      avility: [
+      skills: [
         {
           profecy: true,
           name: '威圧（魅力）',
@@ -196,6 +173,12 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    isXs() {
+      console.log(this.$vuetify.breakpoint.name === 'xs')
+      return this.$vuetify.breakpoint.name === 'xs'
+    },
   },
 }
 </script>

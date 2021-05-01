@@ -6,33 +6,24 @@
           <v-col cols="12">
             <basic-information :url="url" />
           </v-col>
-          <v-col cols="12">
+          <v-col md="9" cols="12">
             <ability />
-          </v-col>
-          <v-col md="6" cols="12">
             <attack />
             <equipment />
+            <v-row>
+              <v-col md="6" cols="12">
+                <skill />
+              </v-col>
+              <v-col md="6" cols="12">
+                <saving-throw />
+              </v-col>
+            </v-row>
           </v-col>
-          <v-col md="6" cols="12">
-            <saving-throw />
-            <skill />
-          </v-col>
-          <!-- <v-col lg="6" cols="12">
-            <attack />
-          </v-col> -->
-          <!-- <v-col lg="6" cols="12">
-            <equipment />
-          </v-col> -->
-          <v-col md="6" cols="12">
+          <v-col md="3" cols="12">
+            <background />
             <other-attributes />
             <feature />
           </v-col>
-          <v-col md="6" cols="12">
-            <background />
-          </v-col>
-          <!-- <v-col lg="6" cols="12">
-          </v-col> -->
-          <!-- <v-col lg="6" cols="12" /> -->
           <v-col cols="12">
             <spells />
           </v-col>
@@ -75,7 +66,7 @@ export default {
   data() {
     return {
       messages: 'aaa',
-      panels: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      panels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
       //   selection: null,
     }
   },
