@@ -135,8 +135,6 @@
   </v-expansion-panel>
 </template>
 
-<style lang="scss" scoped></style>
-
 <script>
 export default {
   data() {
@@ -226,3 +224,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped></style>

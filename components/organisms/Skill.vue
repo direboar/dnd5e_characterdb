@@ -19,7 +19,7 @@
             </td>
             <td class="caption">{{ item.name }}</td>
             <td>
-              <v-text-field class="caption" v-model="item.other" dense />
+              <v-text-field v-model="item.other" class="caption" dense />
             </td>
             <td class="caption">{{ item.value }}</td>
           </tr>
@@ -28,8 +28,6 @@
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
-
-<style lang="scss" scoped></style>
 
 <script>
 export default {
@@ -182,3 +180,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped></style>

@@ -4,7 +4,11 @@
       <v-expansion-panels v-model="panels" multiple>
         <v-row no-gutters>
           <v-col cols="12">
-            <basic-information :url="url" />
+            <basic-information
+              :url="url"
+              :basic="character.basic"
+              @update="updateBasic"
+            />
           </v-col>
           <v-col md="9" cols="12">
             <ability />
@@ -33,8 +37,6 @@
   </v-card>
 </template>
 
-<style lang="scss" scoped></style>
-
 <script>
 import BasicInformation from '~/components/organisms/BasicInformation.vue'
 import Ability from '~/components/organisms/Ability.vue'
@@ -62,6 +64,14 @@ export default {
   },
   props: {
     url: String,
+    character: {
+      type: Object,
+      default: () => {
+        return {
+          basic: {},
+        }
+      },
+    },
   },
   data() {
     return {
@@ -72,6 +82,14 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    updateBasic(basic) {
+      const copy = Object.assign({}, this.character)
+      copy.basic = basic
+      this.$emit('update', copy)
+    },
+  },
 }
 </script>
+
+<style lang="scss" scoped></style>

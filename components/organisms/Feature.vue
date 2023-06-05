@@ -3,8 +3,8 @@
     <v-expansion-panel-header>特徴・特性</v-expansion-panel-header>
     <v-expansion-panel-content>
       <v-textarea
-        background-color="#424242"
         v-model="feature"
+        background-color="#424242"
         messages="特徴・特性"
         auto-grow
         dense
